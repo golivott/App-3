@@ -9,10 +9,16 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     public float walkSpeed;
     bool isWalking;
+    
+    [Header("Slopes")]
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
 
+    [Header("Drag")]
     public float groundDrag;
     public float airDrag;
 
+    [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -48,7 +54,7 @@ public class PlayerController : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, groundLayer);
 
         GetInput();
-        SpeedControl();
+        //SpeedControl();
 
         // handle drag
         if (grounded)
@@ -95,6 +101,14 @@ public class PlayerController : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+        // on slope 
+        if (OnSlope())
+        {
+            // counter gravity to prevent sliding
+            Vector3 gravity = Vector3.ProjectOnPlane(-Physics.gravity, slopeHit.normal);
+            rb.AddForce(gravity, ForceMode.Force);
+        }
+        
         // on ground
         if(grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Force);
@@ -104,18 +118,6 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
     }
 
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-        }
-    }
-
     private void Jump()
     {
         // reset y velocity
@@ -123,8 +125,20 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
+    
     private void ResetJump()
     {
         canJump = true;
     }
+
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+        return false;
+    }
+
 }
