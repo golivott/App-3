@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 6073517929937008666}
   - component: {fileID: 2211274911664493146}
   - component: {fileID: 7344032946062006018}
+  - component: {fileID: 2343637072405811694}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -339,6 +340,7 @@ MonoBehaviour:
   moveSpeed: 70
   runSpeed: 100
   walkSpeed: 50
+  moveSpeedMultiplier: 1
   maxSlopeAngle: 45
   groundDrag: 10
   airDrag: 2
@@ -350,6 +352,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   orientation: {fileID: 324927357028510995}
+--- !u!114 &2343637072405811694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828231694771549601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2ba53e0758d94cbc34cb55cf590df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  healthRegenPerSecond: 10
+  healthRegenMultiplier: 1
+  healthRegenDelaySeconds: 2
+  damageMultiplier: 1
+  invulTimeSeconds: 1
+  moveSpeedMulitpier: 0
+  movement: {fileID: 7344032946062006018}
 --- !u!1 &5885310519096625662
 GameObject:
   m_ObjectHideFlags: 0
