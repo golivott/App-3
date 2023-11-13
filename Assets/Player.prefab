@@ -258,9 +258,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.8094232
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.095288396, z: 0}
 --- !u!1 &5828231694771549601
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   maxSlopeAngle: 45
   groundDrag: 10
   airDrag: 2
-  jumpForce: 20
+  jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.2
   playerHeight: 2
