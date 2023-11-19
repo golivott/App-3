@@ -8,14 +8,15 @@ using Random = UnityEngine.Random;
 
 public class GuardianController : MonoBehaviour
 {
-
     public float huntSpeed;
     public float wanderSpeed;
     public LayerMask playerMask;
     public float wanderRange;
+
+    public Light light;
     
     private NavMeshAgent nav;
-    private Vector3 spawnPos;
+    private Vector3 spawnPos = Vector3.zero;
     private bool hunting = false;
     
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class GuardianController : MonoBehaviour
     {
         nav = GetComponent<NavMeshAgent>();
         spawnPos = transform.position;
+        nav.avoidancePriority = Random.Range(1, 51);
     }
 
     // Update is called once per frame
@@ -30,6 +32,8 @@ public class GuardianController : MonoBehaviour
     {
         // adjust speed if hunting
         nav.speed = hunting ? huntSpeed : wanderSpeed;
+        light.color = hunting ? Color.red : Color.white;
+        light.intensity = hunting ? 20 : 2;
         
         // Calculate current and destination positions excluding y coord
         Vector3 currPos = transform.position;
@@ -52,7 +56,7 @@ public class GuardianController : MonoBehaviour
         // Determine rotate toward targetPos
         Vector3 targetDirection = nav.destination - transform.position;
         targetDirection.y = 0f;
-        float singleStep = 1f * Time.deltaTime;
+        float singleStep = 4f * Time.deltaTime;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
         Debug.DrawRay(transform.position, newDirection, Color.red);
         transform.rotation = Quaternion.LookRotation(newDirection);
@@ -64,7 +68,6 @@ public class GuardianController : MonoBehaviour
         Vector3 currentPos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         
         Ray ray = new Ray(currentPos, playerPos - currentPos);
-        print(playerPos);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 10000f, playerMask ))
         {
             if (raycastHit.transform.CompareTag("Player"))
@@ -84,9 +87,9 @@ public class GuardianController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(spawnPos, wanderRange);
+        Gizmos.DrawWireSphere(spawnPos == Vector3.zero ? transform.position : spawnPos, wanderRange);
     }
 }
