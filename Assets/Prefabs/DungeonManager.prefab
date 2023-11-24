@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7502721323142131673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968406190203964824}
+  - component: {fileID: 3201190851526476845}
+  - component: {fileID: 924213858156189048}
+  - component: {fileID: 440921924280129083}
+  m_Layer: 0
+  m_Name: DungeonManager
+  m_TagString: DungeonManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1968406190203964824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502721323142131673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3201190851526476845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502721323142131673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0882b2dd708775c4383943dc4786bdbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spirit: {fileID: 7933118371562469840, guid: ed77cd9a15bbce045a40e3cc0bff2158, type: 3}
+  maxSpirits: 3
+  spiritCount: 0
+  unlockExit: 0
+  lowestLevelUnlocked: 0
+  currLevel: 0
+  player: {fileID: 4448492092319055874, guid: f9c534cce9935b642bfa5d9b4032d23a, type: 3}
+  previousScene: 
+  artifactLocation: {x: 0, y: 0, z: 0}
+  artifactSpawned: 0
+  artifactController: {fileID: 2925958895869945414, guid: 74a954223da6ff443a5e7bb91522e1ba, type: 3}
+  currAnger: 0
+  angerBlock: 0
+  maxAnger: 20
+  hazardBlock: 0
+  hazardInterval: 30
+  hazardChance: 0.5
+  currGold: 0
+  currGems: 0
+  goldQueue: 10
+  gemQueue: 0
+  treasureSpawnInterval: 2
+  gold: {fileID: 3101994317741142070, guid: a43080cb0dee9664dacf9e9579464006, type: 3}
+  gem: {fileID: 152596751387134911, guid: 1c918943f4338534eb06bf5200545b7a, type: 3}
+  key: {fileID: 3810861038332457388, guid: d2c173dcb26bb3648bf01f1e088972b5, type: 3}
+  keyChance: 0.25
+  cardDrawInterval: 0
+--- !u!114 &924213858156189048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502721323142131673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3398de92778c6dc45a0aef3a4f9e2b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440921924280129083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502721323142131673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4610c8da9aae2c46a20090b31038953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

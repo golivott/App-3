@@ -5070,6 +5070,7 @@ MonoBehaviour:
   acceleration: 5
   deceleration: 1
   maxSpeed: 10
+  damage: 40
 --- !u!135 &4793205187020100585
 SphereCollider:
   m_ObjectHideFlags: 0

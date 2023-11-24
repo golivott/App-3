@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535c7687ea81bb14997a1811784969ea, type: 3}
+  m_Name: English
+  m_EditorClassIdentifier: 
+  dict:
+    _serializedList:
+    - Key: Quit Game
+      Value: Quit Game
+    - Key: Sensitivity
+      Value: Sensitivity
+    - Key: Sound
+      Value: Sound
+    - Key: Play
+      Value: Play
+    - Key: Deck Builder
+      Value: Deck Builder
+    - Key: Settings
+      Value: Settings
+    - Key: Back
+      Value: Back
+    - Key: Continue
+      Value: Continue
+    - Key: Game Over
+      Value: Game Over
+    - Key: You Win
+      Value: You Win!
+    - Key: Easy
+      Value: Easy
+    - Key: Normal
+      Value: Normal
+    - Key: Hard
+      Value: Hard

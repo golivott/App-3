@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,9 +9,19 @@ public class PlayerMove : MonoBehaviour
 {
     [Header("Movement")]
     [HideInInspector]public float moveSpeed;
-    public float runSpeed;
+    public float sprintSpeed;
     public float walkSpeed;
-    bool isWalking;
+    public float sneakSpeed;
+    public bool isSneaking;
+    public bool canSprint;
+    public bool isSprinting;
+    public float stamina;
+    public float staminaRegenRate;
+    public float staminaConsumeRate;
+    public bool canRegenStamina;
+    private float fov;
+    private Coroutine regenCoroutine;
+    private Coroutine sprintCoroutine;
     
     [Header("Slopes")]
     public float maxSlopeAngle;
@@ -45,7 +58,10 @@ public class PlayerMove : MonoBehaviour
 
         moveSpeed = 0;
         canJump = true;
-        isWalking = false;
+        isSneaking = false;
+        isSprinting = false;
+        canSprint = true;
+        canRegenStamina = true;
     }
 
     private void Update()
@@ -54,13 +70,46 @@ public class PlayerMove : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, groundLayer);
 
         GetInput();
-        //SpeedControl();
 
         // handle drag
         if (grounded)
             rb.drag = groundDrag;
         else
             rb.drag = airDrag;
+        
+        // Stamina regen tick
+        if (stamina < 100f && !isSprinting && canSprint && canRegenStamina)
+        {
+            stamina += staminaRegenRate * Time.deltaTime;
+            stamina = Mathf.Clamp(stamina, 0, 100f);
+        }
+            
+        // Stamina consume
+        if (isSprinting)
+        {
+            canRegenStamina = false;
+            stamina -= staminaConsumeRate * Time.deltaTime;
+            if (stamina <= 0)
+            {
+                canSprint = false;
+                if (sprintCoroutine != null)
+                {
+                    StopCoroutine(sprintCoroutine);
+                }
+                sprintCoroutine = StartCoroutine(EnableSprintAfterDelay(2f));
+            }
+            stamina = Mathf.Clamp(stamina, 0, 100f);
+            if (regenCoroutine != null)
+            {
+                StopCoroutine(regenCoroutine);
+            }
+            regenCoroutine = StartCoroutine(EnableRegenAfterDelay(2f));
+        }
+    }
+    
+    private void FixedUpdate()
+    {
+        MovePlayer();
     }
 
     private void OnDrawGizmos()
@@ -68,37 +117,56 @@ public class PlayerMove : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * (playerHeight * 0.5f + 0.3f));
     }
-
-    private void FixedUpdate()
+    
+    IEnumerator EnableSprintAfterDelay(float delay)
     {
-        MovePlayer();
+        yield return new WaitForSeconds(delay);
+        canSprint = true;
     }
 
+    IEnumerator EnableRegenAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canRegenStamina = true;
+    }
+    
     private void GetInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetButton("Walk") && grounded) isWalking = true;
-        else isWalking = false;
-        
-        // when to jump
-        if(Input.GetButton("Jump") && canJump && grounded)
+        if (Player.Instance.health > 0)
         {
-            canJump = false;
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+            
+            // Set player isSneaking for sneak zones
+            if (Input.GetButton("Sneak")) Player.Instance.isSneaking = true;
+            else Player.Instance.isSneaking = false;
 
-            Jump();
+            // Set movement is sneaking
+            if (Input.GetButton("Sneak") && grounded) isSneaking = true;
+            else isSneaking = false;
 
-            Invoke(nameof(ResetJump), jumpCooldown);
+            if (Input.GetButton("Sprint") && !isSneaking && canSprint) isSprinting = true;
+            else isSprinting = false;
+        
+            // when to jump
+            if(Input.GetButton("Jump") && canJump && grounded)
+            {
+                canJump = false;
+
+                Jump();
+
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
         }
     }
 
     private void MovePlayer()
     {
-        if (isWalking) moveSpeed = walkSpeed;
-        else moveSpeed = runSpeed;
+        if (isSneaking) moveSpeed = sneakSpeed;
+        else if (isSprinting) moveSpeed = sprintSpeed;
+        else moveSpeed = walkSpeed;
 
-        moveSpeed = moveSpeed * Player.Instance.moveSpeedMulitpier;
+        moveSpeed *= Player.Instance.moveSpeedMulitpier;
         
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;

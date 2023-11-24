@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpiritController : MonoBehaviour
 {
@@ -8,16 +10,22 @@ public class SpiritController : MonoBehaviour
     public float acceleration;
     public float deceleration;
     public float maxSpeed;
+    public float damage;
     private Vector3 targetPos;
     private Vector3 targetDir;
     private bool reachedTarget;
+    private float randomDistOffset;
+
+    private void OnEnable() => DungeonManager.Instance.spiritCount++;
+    private void OnDisable() => DungeonManager.Instance.spiritCount--;
 
     // Start is called before the first frame update
     void Start()
     {
-        targetPos = Player.Instance.gameObject.transform.position;
+        targetPos = Player.Instance.player.transform.position;
         targetDir = (targetPos - transform.position).normalized;
         reachedTarget = false;
+        randomDistOffset = Random.Range(0f, 1f);
     }
 
     // Update is called once per frame
@@ -27,13 +35,14 @@ public class SpiritController : MonoBehaviour
         if ((rb.velocity.magnitude < 0.1f || Vector3.Distance(targetPos, transform.position) > 100) && reachedTarget)
         {
             rb.velocity = Vector3.zero;
-            targetPos = Player.Instance.gameObject.transform.position;
+            targetPos = Player.Instance.player.transform.position;
             targetDir = (targetPos - transform.position).normalized;
             reachedTarget = false;
+            randomDistOffset = Random.Range(0f, 1f);
         }
 
         // Check if the ghost should start decelerating
-        if (!reachedTarget && Vector3.Distance(targetPos, transform.position) < 0.5f)
+        if (!reachedTarget && Vector3.Distance(targetPos + targetDir.normalized * randomDistOffset, transform.position) < 0.5f)
         {
             reachedTarget = true;
         }
@@ -55,10 +64,22 @@ public class SpiritController : MonoBehaviour
         }
 
         // Determine rotate toward player
-        Vector3 targetLookDir = Player.Instance.gameObject.transform.position - transform.position;
+        Vector3 targetLookDir = Player.Instance.player.transform.position - transform.position;
         float singleStep = 5f * Time.deltaTime;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetLookDir, singleStep, 0.0f);
         Debug.DrawRay(transform.position, newDirection, Color.red);
         transform.rotation = Quaternion.LookRotation(newDirection);
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Rigidbody playerRB = other.gameObject.GetComponent<Rigidbody>();
+            Vector3 forceDir = Player.Instance.player.transform.position - transform.position;
+            forceDir.y = 0;
+            playerRB.AddForce(forceDir.normalized * 20f + Vector3.up * 10f, ForceMode.Impulse);
+            Player.Instance.Damage(damage);
+        }
     }
 }
