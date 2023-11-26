@@ -31,9 +31,9 @@ public static class LanguageController
     
     public static void UpdateTextLanguage()
     {
-        TextMeshProUGUI[] textBoxes = Object.FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None);
+        TMP_Text[] textBoxes = Object.FindObjectsByType<TMP_Text>(FindObjectsSortMode.None);
         
-        foreach (TextMeshProUGUI textBox in textBoxes)
+        foreach (TMP_Text textBox in textBoxes)
         {
             string key = textBox.gameObject.name;
             if (languages[selectedLanguage].dict.TryGetValue(key, out string value))

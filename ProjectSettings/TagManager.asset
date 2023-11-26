@@ -7,6 +7,8 @@ TagManager:
   - DungeonManager
   - ArtifactSpawn
   - Artifact
+  - Guardian
+  - Card
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
-  - 
+  - Card
+  - Table
   - 
   - 
   - 

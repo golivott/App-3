@@ -32,6 +32,7 @@ public class ArtifactController : MonoBehaviour
         DungeonManager.Instance.currGems += artifact.gemValue;
         DungeonManager.Instance.AddAnger(3);
         DungeonManager.Instance.unlockExit = true;
+        Player.Instance.artifactPickup.Play();
         Destroy(gameObject);
     }
 }

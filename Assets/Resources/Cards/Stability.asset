@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf5707348c36f5459f99cdbf485c6ef, type: 3}
   m_Name: Stability
   m_EditorClassIdentifier: 
-  title: Stability
-  desc: +2 Hazard Block
-  rarity: 0
+  cardName: StabilityCard
+  description: StabilityDesc
+  maxInDeck: 5
+  gemCost: 8
+  goldCost: 8
+  cardRarity: 1
+  cardType: 2

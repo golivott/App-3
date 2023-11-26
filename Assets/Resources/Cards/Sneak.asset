@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf5707348c36f5459f99cdbf485c6ef, type: 3}
   m_Name: Sneak
   m_EditorClassIdentifier: 
-  title: Sneak
-  desc: +2 Anger Block
-  rarity: 0
+  cardName: SneakCard
+  description: SneakDesc
+  maxInDeck: 5
+  gemCost: 7
+  goldCost: 7
+  cardRarity: 1
+  cardType: 1

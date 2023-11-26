@@ -20,10 +20,12 @@
  * May your sanity persist, as you venture in there.
  */
 
+using System;
 using UnityEngine;
 
 public enum CardType
 {
+    DungeonRage,
     Sneak,
     Stability,
     GoldHunter,
@@ -42,6 +44,7 @@ public enum CardType
     Quickstep,
     SuitUp,
     AdrenalineRush,
+    DungeonRepairs,
     EerieSilence,
     Swagger,
     SneakStep,
@@ -55,17 +58,29 @@ public enum CardType
     Brilliance,
 }
 
+public enum CardRarity
+{
+    Bad,
+    Normal,
+    Good,
+}
+
 [CreateAssetMenu(menuName = "Card")]
 public class Card : ScriptableObject
 {
     public string cardName;
     public string description;
+    public int maxInDeck;
+    public float gemCost;
+    public float goldCost;
+    public CardRarity cardRarity;
     public CardType cardType;
 
     public void Play()
     {
         switch (cardType)
         {
+            case CardType.DungeonRage: DungeonRage(); break;
             case CardType.Sneak: Sneak(); break;
             case CardType.Stability: Stability(); break;
             case CardType.GoldHunter: GoldHunter(); break;
@@ -84,6 +99,7 @@ public class Card : ScriptableObject
             case CardType.Quickstep: Quickstep(); break;
             case CardType.SuitUp: SuitUp(); break;
             case CardType.AdrenalineRush: AdrenalineRush(); break;
+            case CardType.DungeonRepairs: DungeonRepairs(); break;
             case CardType.EerieSilence: EerieSilence(); break;
             case CardType.Swagger: Swagger(); break;
             case CardType.SneakStep: SneakStep(); break;
@@ -98,35 +114,212 @@ public class Card : ScriptableObject
         }
     }
 
-    private void Sneak() {}
-    private void Stability() {}
-    private void GoldHunter() {}
-    private void GemSeeker() {}
-    private void Evasion() {}
-    private void TreadLightly() {}
-    private void GemFocus() {}
-    private void LootScoot() {}
-    private void SecondWind() {}
-    private void GuardianAngel() {}
-    private void BoundingStrides() {}
-    private void RecklessCharge() {}
-    private void Sprint() {}
-    private void NimbleLooting() {}
-    private void SmashGrab() {}
-    private void Quickstep() {}
-    private void SuitUp() {}
-    private void AdrenalineRush() {}
-    private void EerieSilence() {}
-    private void Swagger() {}
-    private void SneakStep() {}
-    private void SpeedRunner() {}
-    private void EyesOnThePrize() {}
-    private void Haste() {}
-    private void GemRain() {}
-    private void SilentRunner() {}
-    private void FuzzyBunnySlippers() {}
-    private void DeepDiver() {}
-    private void Brilliance() {}
+    private void DungeonRage()
+    {
+        DungeonManager.Instance.AddAnger(2);
+    }
+    private void Sneak()
+    {
+        DungeonManager.Instance.AddAngerBlock(2);
+        if (DungeonManager.Instance.sneakStepGems > 0)
+        {
+            DungeonManager.Instance.AddGems(DungeonManager.Instance.sneakStepGems);
+        }
+    }
 
-    // Add more methods here for other card actions
+    private void Stability()
+    {
+        DungeonManager.Instance.AddHazardBlock(2);
+    }
+
+    private void GoldHunter()
+    {
+        DungeonManager.Instance.AddGold(4);
+    }
+
+    private void GemSeeker()
+    {
+        DungeonManager.Instance.AddGems(2);
+    }
+
+    private void Evasion()
+    {
+        DungeonManager.Instance.AddAngerBlock(4);
+    }
+
+    private void TreadLightly()
+    {
+        DungeonManager.Instance.AddHazardBlock(4);
+    }
+
+    private void GemFocus()
+    {
+        DungeonManager.Instance.AddGems(4);
+    }
+
+    private void LootScoot()
+    {
+        DungeonManager.Instance.AddGold(7);
+        DungeonManager.Instance.LootScootBuff(); // ms buff for 15 sec
+    }
+
+    private void SecondWind()
+    {
+        DungeonManager.Instance.SecondWindBuff();
+        // health regen buff for 15 sec
+        // ms buff for 15 sec
+    }
+
+    private void GuardianAngel()
+    {
+        DungeonManager.Instance.AddAnger(1);
+        DungeonManager.Instance.GuardianAngelBuff();
+        // Disable guardians for 15 sec
+    }
+
+    private void BoundingStrides()
+    {
+        DungeonManager.Instance.AddHazardBlock(2);
+        // jump buff for 2 min
+        DungeonManager.Instance.BoundingStridesBuff();
+    }
+
+    private void RecklessCharge()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            DungeonManager.Instance.TriggerHazards();
+        }
+        DungeonManager.Instance.RecklessChargeBuff();
+        // 10 sec to trigger a noise event
+        // if it triggers spawn 8 gems in the dungeon
+    }
+
+    private void Sprint()
+    {
+        DungeonManager.Instance.SprintBuff();
+        // buff ms for 60 sec
+    }
+
+    private void NimbleLooting()
+    {
+        DungeonManager.Instance.AddAngerBlock(1);
+        DungeonManager.Instance.AddGold(2);
+        DungeonManager.Instance.NimbleLootingBuff();
+        // for each anger blocked spawn 2 gold
+    }
+
+    private void SmashGrab()
+    {
+        DungeonManager.Instance.AddGold(13);
+        DungeonManager.Instance.AddAnger(2);
+    }
+
+    private void Quickstep()
+    {
+        DungeonManager.Instance.AddAngerBlock(2);
+        DungeonManager.Instance.QuickStepBuff();
+        // buff ms for 15 sec
+        DeckManager.Instance.DrawCard();
+    }
+
+    private void SuitUp()
+    {
+        Player.Instance.damageMultiplier = 0.7f;
+        DungeonManager.Instance.doubleAngerChance = 0.25f;
+    }
+
+    private void AdrenalineRush()
+    {
+        DungeonManager.Instance.TriggerHazards();
+        DungeonManager.Instance.AddGold(DungeonManager.Instance.currAnger);
+    }
+
+    private void EerieSilence()
+    {
+        DungeonManager.Instance.AddAngerBlock(8);
+        DungeonManager.Instance.AddHazardBlock(2);
+        DeckManager.Instance.BurnCard();
+    }
+    
+    private void DungeonRepairs()
+    {
+        DungeonManager.Instance.AddAngerBlock(7);
+        DungeonManager.Instance.AddAnger(1);
+    }
+
+    private void Swagger()
+    {
+        DungeonManager.Instance.AddGold(10);
+        DungeonManager.Instance.AddGems(10);
+        DeckManager.Instance.AddDungeonRageCard(2);
+        DeckManager.Instance.ShuffleDeck();
+    }
+
+    private void SneakStep()
+    {
+        // Any future sneak cards played will spawn 2 gems.
+        // This effect may stack up to 6 gems.
+        DungeonManager.Instance.SneakStepBuff();
+    }
+
+    private void SpeedRunner()
+    {
+        // Spawns 8 gems at the entrance to level 3 in the dungeon,
+        // these gems will disappear after 5 min.
+        DungeonManager.Instance.SpeedRunnerBuff();
+    }
+
+    private void EyesOnThePrize()
+    {
+        DungeonManager.Instance.AddAnger(2);
+        for (int i = 0; i < 3; i++)
+        {
+            DungeonManager.Instance.TriggerHazards();
+        }
+
+        // an extra card will be available in the gem shop
+        DungeonManager.Instance.eyesOnThePrizeBuff += DungeonManager.Instance.eyesOnThePrizeBuff < 3 ? 1 : 0;
+    }
+
+    private void Haste()
+    {
+        DeckManager.Instance.ChangeInterval(DungeonManager.Instance.cardDrawInterval * 0.9f);
+    }
+
+    private void GemRain()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            DungeonManager.Instance.TriggerHazards();
+        }
+        DungeonManager.Instance.GemRainBuff();
+        // for the next 3 card draws gem spawns are doubled
+    }
+
+    private void SilentRunner()
+    {
+        DungeonManager.Instance.SilentRunnerBuff();
+        // Every 15 seconds player move speed is buffed, 
+        // 50% chance to block 1 anger
+    }
+
+    private void FuzzyBunnySlippers()
+    {
+        DungeonManager.Instance.FuzzyBunnySlippersBuff();
+        // Every 6 minutes block 4 anger but player move speed cannot 
+        // be buffed if they’ve collected the artifact
+    }
+
+    private void DeepDiver()
+    {
+        DungeonManager.Instance.DeepDiverBuff();
+        // Spawns 6 gems at the entrance to each level in the dungeon
+    }
+
+    private void Brilliance()
+    {
+        DeckManager.Instance.DrawCard();
+        DeckManager.Instance.DrawCard();
+    }
 }

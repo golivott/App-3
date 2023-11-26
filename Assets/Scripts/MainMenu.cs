@@ -14,6 +14,16 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        int firstLoad = PlayerPrefs.GetInt("FirstLoad", 0);
+        if (firstLoad == 0)
+        {
+            Deck.SaveDeck();
+            PlayerPrefs.SetInt("FirstLoad", 1);
+        }
+        
+        float volume = PlayerPrefs.GetFloat("volume", 0.1f);
+        AudioListener.volume = volume;
+        
         OpenMain();
     }
 
@@ -22,6 +32,16 @@ public class MainMenu : MonoBehaviour
         DungeonManager.difficulty = difficulty;
         Instantiate(dungeonManager);
         SceneManager.LoadScene("Level1");
+    }
+
+    public void OpenShop()
+    {
+        SceneManager.LoadScene("GoldShop");
+    }
+
+    public void OpenDeckBuilder()
+    {
+        SceneManager.LoadScene("DeckBuilder");
     }
 
     public void OpenSettings()

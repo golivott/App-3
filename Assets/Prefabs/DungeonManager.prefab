@@ -52,27 +52,41 @@ MonoBehaviour:
   unlockExit: 0
   lowestLevelUnlocked: 0
   currLevel: 0
+  spawnPos: {fileID: 0}
+  playerSpawned: 0
   player: {fileID: 4448492092319055874, guid: f9c534cce9935b642bfa5d9b4032d23a, type: 3}
   previousScene: 
+  guardians: []
   artifactLocation: {x: 0, y: 0, z: 0}
   artifactSpawned: 0
   artifactController: {fileID: 2925958895869945414, guid: 74a954223da6ff443a5e7bb91522e1ba, type: 3}
   currAnger: 0
   angerBlock: 0
   maxAnger: 20
+  doubleAngerChance: 0
   hazardBlock: 0
   hazardInterval: 30
   hazardChance: 0.5
   currGold: 0
   currGems: 0
-  goldQueue: 10
+  goldQueue: 0
   gemQueue: 0
   treasureSpawnInterval: 2
   gold: {fileID: 3101994317741142070, guid: a43080cb0dee9664dacf9e9579464006, type: 3}
   gem: {fileID: 152596751387134911, guid: 1c918943f4338534eb06bf5200545b7a, type: 3}
   key: {fileID: 3810861038332457388, guid: d2c173dcb26bb3648bf01f1e088972b5, type: 3}
   keyChance: 0.25
-  cardDrawInterval: 0
+  cardDrawInterval: 30
+  dungeonRageInterval: 60
+  recklessCharge: 0
+  nimbleLooting: 0
+  sneakStepGems: 0
+  speedRunner: 0
+  eyesOnThePrizeBuff: 0
+  gemRain: 0
+  fuzzyBunnySlippers: 0
+  deepDiverLevel2: 0
+  deepDiverLevel3: 0
 --- !u!114 &924213858156189048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,3 +111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4610c8da9aae2c46a20090b31038953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: []

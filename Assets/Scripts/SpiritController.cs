@@ -71,11 +71,11 @@ public class SpiritController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Rigidbody playerRB = other.gameObject.GetComponent<Rigidbody>();
+            Rigidbody playerRB = Player.Instance.player.GetComponent<Rigidbody>();
             Vector3 forceDir = Player.Instance.player.transform.position - transform.position;
             forceDir.y = 0;
             playerRB.AddForce(forceDir.normalized * 20f + Vector3.up * 10f, ForceMode.Impulse);

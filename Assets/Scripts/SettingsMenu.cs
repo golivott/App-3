@@ -18,6 +18,7 @@ public class SettingsMenu : MonoBehaviour
         UpdateSens(sens);
         float volume = PlayerPrefs.GetFloat("volume", 0.1f);
         soundSlider.value = volume;
+        AudioListener.volume = volume;
         UpdateSound(volume);
     }
 
@@ -39,6 +40,7 @@ public class SettingsMenu : MonoBehaviour
     private void UpdateSound(float sound)
     {
         soundValue.text = sound.ToString();
+        AudioListener.volume = sound;
         PlayerPrefs.SetFloat("volume", sound);
     }
 

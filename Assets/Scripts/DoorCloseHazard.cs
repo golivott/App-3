@@ -31,7 +31,9 @@ public class DoorCloseHazard : Hazard
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        float fullDistance = Vector3.Distance(startPos, closePos.transform.position);
+        float currDistance = Vector3.Distance(transform.position, closePos.transform.position);
+        if (other.gameObject.CompareTag("Player") && currDistance / fullDistance < 0.95f)
         {
             triggered = false;
         }

@@ -40,3 +40,203 @@ MonoBehaviour:
       Value: Normal
     - Key: Hard
       Value: Hard
+    - Key: Move - WASD
+      Value: Move - WASD
+    - Key: Sprint - SHIFT
+      Value: Sprint - SHIFT
+    - Key: Sneak - CTRL
+      Value: Sneak - CTRL
+    - Key: Jump - SPACE
+      Value: Jump - SPACE
+    - Key: Interact - E
+      Value: Interact - E
+    - Key: Pause - ESC
+      Value: Pause - ESC
+    - Key: Debug Menu - 1
+      Value: Debug Menu - 1
+    - Key: Gold Shop
+      Value: Gold Shop
+    - Key: AdrenalineRushCard
+      Value: Adrenaline Rush
+    - Key: AdrenalineRushDesc
+      Value: '+1 Hazard
+
+        Spawn gold equal to current anger'
+    - Key: BoundingStridesCard
+      Value: Bounding Strides
+    - Key: BoundingStridesDesc
+      Value: '+2 Hazard Block
+
+        120s Jump Boost'
+    - Key: BrillianceCard
+      Value: Brilliance
+    - Key: BrillianceDesc
+      Value: Draw 2 Cards
+    - Key: DeepDiverCard
+      Value: Deep Diver
+    - Key: DeepDiverDesc
+      Value: Spawn 6 gems at the start of each level in the dungeon
+    - Key: DungeonRageCard
+      Value: Dungeon Rage
+    - Key: DungeonRageDesc
+      Value: +2 Anger
+    - Key: DungeonRepairsCard
+      Value: Dungeon Repairs
+    - Key: DungeonRepairsDesc
+      Value: '+7 Hazard Block
+
+        +1 Anger'
+    - Key: EerieSilenceCard
+      Value: Eerie Silence
+    - Key: EerieSilenceDesc
+      Value: '+8 Anger Block
+
+        +2 Hazard Block
+
+        Discard your next
+        card draw'
+    - Key: EvasionCard
+      Value: Evasion
+    - Key: EvasionDesc
+      Value: +4 Anger Block
+    - Key: EyesOnThePrizeCard
+      Value: Eyes On The Prize
+    - Key: EyesOnThePrizeDesc
+      Value: '+2 Anger
+
+        +3 Hazard
+
+        An extra card is available from
+        the shop at the end of this run'
+    - Key: FuzzyBunnySlippersCard
+      Value: Fuzzy Bunny Slippers
+    - Key: FuzzyBunnySlippersDesc
+      Value: 'PRIORITY
+
+        Every 6 minutes, +4 Anger Block
+
+        Player speed
+        cannot be buffed after collecting the artifact'
+    - Key: GemFocusCard
+      Value: Gem Focus
+    - Key: GemFocusDesc
+      Value: +4 Gems
+    - Key: GemRainCard
+      Value: Gem Rain
+    - Key: GemRainDesc
+      Value: '+3 Hazard
+
+        2x Gems for the next 3 card draws'
+    - Key: GemSeekerCard
+      Value: Gem Seeker
+    - Key: GemSeekerDesc
+      Value: +2 Gems
+    - Key: GoldHunterCard
+      Value: Gold Hunter
+    - Key: GoldHunterDesc
+      Value: +4 Gold
+    - Key: GuardianAngelCard
+      Value: Guardian Angel
+    - Key: GuardianAngelDesc
+      Value: '+1 Anger
+
+        Freeze all guardians for 15s'
+    - Key: HasteCard
+      Value: Haste
+    - Key: HasteDesc
+      Value: 10% Faster Card Draws
+    - Key: LootScootCard
+      Value: Loot & Scoot
+    - Key: LootScootDesc
+      Value: '+7 Gold
+
+        15s Move Speed'
+    - Key: NimbleLootingCard
+      Value: Nimble Looting
+    - Key: NimbleLootingDesc
+      Value: '+1 Anger Block
+
+        +2 Gold
+
+        +2 Gold for each anger blocked
+        until anger block is 0'
+    - Key: QuickstepCard
+      Value: Quickstep
+    - Key: QuickstepDesc
+      Value: '+2 Anger Block
+
+        15s Move Speed
+
+        Draw a card'
+    - Key: RecklessChargeCard
+      Value: Reckless Charge
+    - Key: RecklessChargeDesc
+      Value: '+2 Hazard
+
+        +8 Gems if you trigger a noise event within 10s'
+    - Key: SecondWindCard
+      Value: Second Wind
+    - Key: SecondWindDesc
+      Value: '15s Regen
+
+        15s Move Speed'
+    - Key: SilentRunnerCard
+      Value: Silent Runner
+    - Key: SilentRunnerDesc
+      Value: 'PRIORITY
+
+        For every 15s of speed buff, 50% chance for +1 Anger
+        Block'
+    - Key: SmashGrabCard
+      Value: Smash & Grab
+    - Key: SmashGrabDesc
+      Value: '+13 Gold
+
+        +2 Anger'
+    - Key: SneakCard
+      Value: Sneak
+    - Key: SneakDesc
+      Value: +2 Anger Block
+    - Key: SneakStepCard
+      Value: Sneak Step
+    - Key: SneakStepDesc
+      Value: '+2 Gems on any future Sneak cards
+
+        This effect can stack'
+    - Key: SpeedRunnerCard
+      Value: Speed Runner
+    - Key: SpeedRunnerDesc
+      Value: '+8 Gems at the entrance to level 3
+
+        These gems will disappear
+        after 5min '
+    - Key: SprintCard
+      Value: Sprint
+    - Key: SprintDesc
+      Value: 60s Move Speed
+    - Key: StabilityCard
+      Value: Stability
+    - Key: StabilityDesc
+      Value: +2 Hazard Block
+    - Key: SuitUpCard
+      Value: Suit Up
+    - Key: SuitUpDesc
+      Value: 'PRIORITY
+
+        30% Damage Reduction
+
+        25% Chance, +1 Anger
+        for each anger generated'
+    - Key: SwaggerCard
+      Value: Swagger
+    - Key: SwaggerDesc
+      Value: '+10 Gold
+
+        +10 Gems
+
+        Shuffle 2 Dungeon Rage Cards into
+        your deck'
+    - Key: TreadLightlyCard
+      Value: Tread Lightly
+    - Key: TreadLightlyDesc
+      Value: +4 Hazard Block

@@ -4,6 +4,7 @@ public class AngerGenerator : MonoBehaviour
 {
     public float triggerCD;
     public float angerAmount;
+    public AudioSource angerSound;
     
     // Add this to the dungeon manager
     private void OnEnable() => DungeonManager.angerGenerators.Add(this);
@@ -16,6 +17,12 @@ public class AngerGenerator : MonoBehaviour
         if (other.CompareTag("Player") && !Player.Instance.isSneaking && !triggered)
         {
             triggered = true;
+            // Reckless charge buff
+            if (DungeonManager.Instance.recklessCharge)
+            {
+                DungeonManager.Instance.AddGems(8);
+            }
+            angerSound.Play();
             DungeonManager.Instance.AddAnger(angerAmount);
             Invoke("ResetTrigger", triggerCD);
         }

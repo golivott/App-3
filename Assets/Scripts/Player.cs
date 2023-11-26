@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public float moveSpeedMulitpier;
     public float jumpMulitpier;
     public bool isSneaking;
+    private PlayerMove playerMove;
 
     [Header("UI")] 
     public Slider healthBar;
@@ -42,6 +43,14 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI hazardBlockCount;
     public Image compassNeedle;
     public Image fadeToBlack;
+    public GameObject cardMain;
+    public TextMeshProUGUI cardTitle;
+    public TextMeshProUGUI cardDesc;
+    
+    [Header("Audio")] 
+    public AudioSource footstep;
+    public AudioSource heartBeat;
+    public AudioSource artifactPickup;
 
     public static Player Instance { get; private set; }
     private void Awake() 
@@ -72,11 +81,36 @@ public class Player : MonoBehaviour
         staminaBar.value = GetComponentInChildren<PlayerMove>().stamina;
         
         fadeToBlack.gameObject.SetActive(false);
+
+        cardMain.SetActive(false);
+        playerMove = player.GetComponent<PlayerMove>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player.GetComponent<Rigidbody>().velocity.magnitude > 4f)
+        {
+            footstep.pitch = 1f;
+            
+            if(player.GetComponent<Rigidbody>().velocity.magnitude > 7f) footstep.pitch = 1.5f;
+
+            if (!footstep.isPlaying && playerMove.grounded)
+            {
+                footstep.Play();
+            }
+        }
+        else
+        {
+            footstep.Stop();
+        }
+
+        if (!heartBeat.isPlaying)
+        {
+            heartBeat.pitch = DungeonManager.Instance.currAnger / 15f + 0.5f;
+            heartBeat.Play();
+        }
+
         // Regen tick
         if (health < maxHealth && canHealthRegen)
         {
@@ -145,5 +179,53 @@ public class Player : MonoBehaviour
         }
 
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void ShowCard(Card card)
+    {
+        cardTitle.name = card.cardName;
+        cardDesc.name = card.description;
+        StartCoroutine(CardAnimation());
+    }
+
+    private IEnumerator CardAnimation()
+    {
+        cardMain.SetActive(true);
+        LanguageController.UpdateTextLanguage();
+        RectTransform rectTransform = cardMain.GetComponent<RectTransform>();
+        Vector2 startPos = new Vector2(rectTransform.anchoredPosition.x, -(rectTransform.rect.height + rectTransform.anchoredPosition.y));
+        Vector2 targetPos = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y);
+
+        // Move the card onto the screen over the course of 1 second
+        float duration = 1f;
+        float time = 0;
+        while (time < duration)
+        {
+            Vector2 newPos = Vector2.Lerp(startPos, targetPos, time / duration);
+            rectTransform.anchoredPosition = newPos;
+            yield return null;
+            time += Time.deltaTime;
+        }
+
+        // Ensure the card is exactly at the target position
+        rectTransform.anchoredPosition = targetPos;
+
+        // Hold there for 2 seconds
+        yield return new WaitForSecondsRealtime(2f);
+
+        // Move the card off the screen over the course of 2 seconds
+        time = 0;
+        duration = 2f;
+        while (time < duration)
+        {
+            Vector2 newPos = Vector2.Lerp(targetPos, startPos, time / duration);
+            rectTransform.anchoredPosition = newPos;
+            yield return null;
+            time += Time.deltaTime;
+        }
+
+        // Ensure the card is exactly at the normal position
+        rectTransform.anchoredPosition = targetPos;
+        cardMain.SetActive(false);
     }
 }

@@ -13,6 +13,7 @@ public class GuardianController : MonoBehaviour
     private NavMeshAgent nav;
     private Vector3 spawnPos = Vector3.zero;
     private bool hunting = false;
+    public AudioSource sound;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,9 @@ public class GuardianController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hunting) sound.pitch = 2f;
+        else sound.pitch = 1f;
+        
         // adjust speed if hunting
         nav.speed = hunting ? huntSpeed : wanderSpeed;
         sLight.color = hunting ? Color.red : Color.white;
@@ -74,7 +78,7 @@ public class GuardianController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

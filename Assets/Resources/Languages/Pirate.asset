@@ -40,3 +40,143 @@ MonoBehaviour:
       Value: Shallow Waters
     - Key: Hard
       Value: Stormy Seas
+    - Key: Move - WASD
+      Value: Steer - WASD
+    - Key: Sprint - SHIFT
+      Value: Full Sails - SHIFT
+    - Key: Sneak - CTRL
+      Value: No Sails - CTRL
+    - Key: Jump - SPACE
+      Value: Big Wave - SPACE
+    - Key: Interact - E
+      Value: Plunder - E
+    - Key: Pause - ESC
+      Value: Swab the poop deck - ESC
+    - Key: Debug Menu - 1
+      Value: Enter Captain's Quarters - 1
+    - Key: Gold Shop
+      Value: Gold Shop
+    - Key: AdrenalineRushCard
+      Value: 
+    - Key: AdrenalineRushDesc
+      Value: 
+    - Key: BoundingStridesCard
+      Value: 
+    - Key: BoundingStridesDesc
+      Value: 
+    - Key: BrillianceCard
+      Value: 
+    - Key: BrillianceDesc
+      Value: 
+    - Key: DeepDiverCard
+      Value: 
+    - Key: DeepDiverDesc
+      Value: 
+    - Key: DungeonRageCard
+      Value: 
+    - Key: DungeonRageDesc
+      Value: 
+    - Key: DungeonRepairsCard
+      Value: 
+    - Key: DungeonRepairsDesc
+      Value: 
+    - Key: EerieSilenceCard
+      Value: 
+    - Key: EerieSilenceDesc
+      Value: 
+    - Key: EvasionCard
+      Value: 
+    - Key: EvasionDesc
+      Value: 
+    - Key: EyesOnThePrizeCard
+      Value: 
+    - Key: EyesOnThePrizeDesc
+      Value: 
+    - Key: FuzzyBunnySlippersCard
+      Value: 
+    - Key: FuzzyBunnySlippersDesc
+      Value: 
+    - Key: GemFocusCard
+      Value: 
+    - Key: GemFocusDesc
+      Value: 
+    - Key: GemRainCard
+      Value: 
+    - Key: GemRainDesc
+      Value: 
+    - Key: GemSeekerCard
+      Value: 
+    - Key: GemSeekerDesc
+      Value: 
+    - Key: GoldHunterCard
+      Value: 
+    - Key: GoldHunterDesc
+      Value: 
+    - Key: GuardianAngelCard
+      Value: 
+    - Key: GuardianAngelDesc
+      Value: 
+    - Key: HasteCard
+      Value: 
+    - Key: HasteDesc
+      Value: 
+    - Key: LootScootCard
+      Value: 
+    - Key: LootScootDesc
+      Value: 
+    - Key: NimbleLootingCard
+      Value: 
+    - Key: NimbleLootingDesc
+      Value: 
+    - Key: QuickstepCard
+      Value: 
+    - Key: QuickstepDesc
+      Value: 
+    - Key: RecklessChargeCard
+      Value: 
+    - Key: RecklessChargeDesc
+      Value: 
+    - Key: SecondWindCard
+      Value: 
+    - Key: SecondWindDesc
+      Value: 
+    - Key: SilentRunnerCard
+      Value: 
+    - Key: SilentRunnerDesc
+      Value: 
+    - Key: SmashGrabCard
+      Value: 
+    - Key: SmashGrabDesc
+      Value: 
+    - Key: SneakCard
+      Value: 
+    - Key: SneakDesc
+      Value: 
+    - Key: SneakStepCard
+      Value: 
+    - Key: SneakStepDesc
+      Value: 
+    - Key: SpeedRunnerCard
+      Value: 
+    - Key: SpeedRunnerDesc
+      Value: 
+    - Key: SprintCard
+      Value: 
+    - Key: SprintDesc
+      Value: 
+    - Key: StabilityCard
+      Value: 
+    - Key: StabilityDesc
+      Value: 
+    - Key: SuitUpCard
+      Value: 
+    - Key: SuitUpDesc
+      Value: 
+    - Key: SwaggerCard
+      Value: 
+    - Key: SwaggerDesc
+      Value: 
+    - Key: TreadLightlyCard
+      Value: 
+    - Key: TreadLightlyDesc
+      Value: 

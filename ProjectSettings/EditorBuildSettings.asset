@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 86374a18d36a0b24b8fd7603322f4c32
+  - enabled: 1
+    path: Assets/Scenes/GoldShop.unity
+    guid: fc9dabd2f031b1848960aa26a32d2cb0
+  - enabled: 1
+    path: Assets/Scenes/DeckBuilder.unity
+    guid: aca073c92885171429e692f948f11e53
+  - enabled: 1
+    path: Assets/Scenes/GemShop.unity
+    guid: c6dde6badcfb9f449a596e91a9e81719
   m_configObjects: {}

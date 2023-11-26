@@ -159,9 +159,9 @@ public class LanguageManager : EditorWindow
 
     public void UpdateTextLanguage()
     {
-        TextMeshProUGUI[] textBoxes = FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None);
+        TMP_Text[] textBoxes = FindObjectsByType<TMP_Text>(FindObjectsSortMode.None);
         
-        foreach (TextMeshProUGUI textBox in textBoxes)
+        foreach (TMP_Text textBox in textBoxes)
         {
             string key = textBox.gameObject.name;
             if (languages[selectedLanguage].dict.TryGetValue(key, out string value))

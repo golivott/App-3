@@ -27,7 +27,11 @@ public class PersistThroughScene : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (spawnScene == scene.name)
+        if (scene.name == "MainMenu")
+        {
+            Destroy(gameObject);
+        }
+        else if (spawnScene == scene.name)
         {
             transform.position = startPos;
             MeshRenderer thisR = GetComponent<MeshRenderer>();

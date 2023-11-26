@@ -10,6 +10,9 @@ public class Goal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            float gold = PlayerPrefs.GetFloat("Gold", 0);
+            PlayerPrefs.SetFloat("Gold", gold + DungeonManager.Instance.currGold);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Win");
         }
     }

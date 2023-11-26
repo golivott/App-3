@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
         UpdateSens(sens);
         float volume = PlayerPrefs.GetFloat("volume", 0.1f);
         soundSlider.value = volume;
+        AudioListener.volume = volume;
         UpdateSound(volume);
     }
 
@@ -63,6 +64,7 @@ public class PauseMenu : MonoBehaviour
     private void UpdateSound(float sound)
     {
         soundValue.text = sound.ToString();
+        AudioListener.volume = sound;
         PlayerPrefs.SetFloat("volume", sound);
     }
 
