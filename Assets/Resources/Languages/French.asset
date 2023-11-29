@@ -15,168 +15,187 @@ MonoBehaviour:
   dict:
     _serializedList:
     - Key: Quit Game
-      Value: 
+      Value: Quitter le jeu
     - Key: Sensitivity
-      Value: 
+      Value: "Sensibilit\xE9"
     - Key: Sound
-      Value: 
+      Value: Son
     - Key: Play
-      Value: 
+      Value: Jouer
     - Key: Deck Builder
-      Value: 
+      Value: Constructeur de terrasses
     - Key: Settings
-      Value: 
+      Value: "Param\xE8tres"
     - Key: Back
-      Value: 
+      Value: Dos
     - Key: Continue
-      Value: 
+      Value: Continuer
     - Key: Game Over
-      Value: 
+      Value: "Jeu termin\xE9"
     - Key: You Win
-      Value: 
+      Value: Vous gagnez!
     - Key: Easy
-      Value: 
+      Value: Facile
     - Key: Normal
-      Value: 
+      Value: Normale
     - Key: Hard
-      Value: 
+      Value: Dur
     - Key: Move - WASD
-      Value: 
+      Value: "D\xE9placer - WASD"
     - Key: Sprint - SHIFT
-      Value: 
+      Value: Sprint - SHIFT
     - Key: Sneak - CTRL
-      Value: 
+      Value: Se faufiler - CTRL
     - Key: Jump - SPACE
-      Value: 
+      Value: Saut - SPACE
     - Key: Interact - E
-      Value: 
+      Value: Interagir - E
     - Key: Pause - ESC
-      Value: 
+      Value: Pause - ESC
     - Key: Debug Menu - 1
-      Value: 
+      Value: "Menu de d\xE9bogage - 1"
     - Key: Gold Shop
-      Value: 
+      Value: Boutique d'or
     - Key: AdrenalineRushCard
-      Value: 
+      Value: "Pouss\xE9e d'adr\xE9naline"
     - Key: AdrenalineRushDesc
-      Value: 
+      Value: "+1 Danger G\xE9n\xE9rer de l'or \xE9gal \xE0 la col\xE8re actuelle"
     - Key: BoundingStridesCard
-      Value: 
+      Value: "Des foul\xE9es bondissantes"
     - Key: BoundingStridesDesc
-      Value: 
+      Value: "Blocage des dangers +2 \nBoost de saut de 120\_s"
     - Key: BrillianceCard
-      Value: 
+      Value: "\xC9clat"
     - Key: BrillianceDesc
-      Value: 
+      Value: Piochez 2 cartes
     - Key: DeepDiverCard
-      Value: 
+      Value: Plongeur profond
     - Key: DeepDiverDesc
-      Value: 
+      Value: "G\xE9n\xE9rez 6 gemmes au d\xE9but de chaque niveau du donjon"
     - Key: DungeonRageCard
-      Value: 
+      Value: Rage de donjon
     - Key: DungeonRageDesc
-      Value: 
+      Value: "+2 Col\xE8re"
     - Key: DungeonRepairsCard
-      Value: 
+      Value: "R\xE9parations de donjon"
     - Key: DungeonRepairsDesc
-      Value: 
+      Value: "+7 Blocage des dangers \n+1 Col\xE8re"
     - Key: EerieSilenceCard
-      Value: 
+      Value: "Silence \xE9trange"
     - Key: EerieSilenceDesc
-      Value: 
+      Value: "+8 Blocage de la col\xE8re \nBlocage des dangers +2 \nD\xE9faussez
+        votre prochaine pioche de carte"
     - Key: EvasionCard
-      Value: 
+      Value: "\xC9vasion"
     - Key: EvasionDesc
-      Value: 
+      Value: "+4 Blocage de la col\xE8re"
     - Key: EyesOnThePrizeCard
-      Value: 
+      Value: "Les yeux riv\xE9s sur le prix"
     - Key: EyesOnThePrizeDesc
-      Value: 
+      Value: "+2 Col\xE8re \n+3 Danger \nUne carte suppl\xE9mentaire est disponible
+        en boutique \xE0 la fin de ce parcours"
     - Key: FuzzyBunnySlippersCard
-      Value: 
+      Value: Chaussons lapin pelucheux
     - Key: FuzzyBunnySlippersDesc
-      Value: 
+      Value: "PRIORIT\xC9 \nToutes les 6 minutes, +4 blocage de col\xE8re \nLa vitesse
+        du joueur ne peut pas \xEAtre am\xE9lior\xE9e apr\xE8s avoir r\xE9cup\xE9r\xE9
+        l'artefact"
     - Key: GemFocusCard
-      Value: 
+      Value: Concentration des gemmes
     - Key: GemFocusDesc
-      Value: 
+      Value: +4 gemmes
     - Key: GemRainCard
-      Value: 
+      Value: Pluie de gemmes
     - Key: GemRainDesc
-      Value: 
+      Value: "+3 Danger \n2x Gemmes pour les 3 prochains tirages de cartes"
     - Key: GemSeekerCard
-      Value: 
+      Value: Chercheur de gemmes
     - Key: GemSeekerDesc
-      Value: 
+      Value: +2 gemmes
     - Key: GoldHunterCard
-      Value: 
+      Value: Chasseur d'or
     - Key: GoldHunterDesc
-      Value: 
+      Value: +4 Or
     - Key: GuardianAngelCard
-      Value: 
+      Value: Ange gardien
     - Key: GuardianAngelDesc
-      Value: 
+      Value: "+1 Col\xE8re G\xE8le tous les gardiens pendant 15 secondes"
     - Key: HasteCard
-      Value: 
+      Value: "H\xE2te"
     - Key: HasteDesc
-      Value: 
+      Value: "Tirages de cartes 10\_% plus rapides"
     - Key: LootScootCard
-      Value: 
+      Value: Butin et Scoot
     - Key: LootScootDesc
-      Value: 
+      Value: "+7 Or Vitesse de d\xE9placement de 15 secondes"
     - Key: NimbleLootingCard
-      Value: 
+      Value: Pillage agile
     - Key: NimbleLootingDesc
-      Value: 
+      Value: "+1 Blocage de la col\xE8re \n+2 Or \n+2 Or pour chaque col\xE8re bloqu\xE9e
+        jusqu'\xE0 ce que le blocage de la col\xE8re atteigne 0"
     - Key: QuickstepCard
-      Value: 
+      Value: "\xC9tape rapide"
     - Key: QuickstepDesc
-      Value: 
+      Value: "+2 Blocage de la col\xE8re \nVitesse de d\xE9placement de 15 secondes
+        Dessiner une carte"
     - Key: RecklessChargeCard
-      Value: 
+      Value: Charge imprudente
     - Key: RecklessChargeDesc
-      Value: 
+      Value: "+2 Danger \n+8 Gemmes si vous d\xE9clenchez un \xE9v\xE9nement sonore
+        dans les 10 secondes"
     - Key: SecondWindCard
-      Value: 
+      Value: Second souffle
     - Key: SecondWindDesc
-      Value: 
+      Value: "R\xE9g\xE9n\xE9ration 15\_s \nVitesse de d\xE9placement de 15 secondes"
     - Key: SilentRunnerCard
-      Value: 
+      Value: Coureur silencieux
     - Key: SilentRunnerDesc
-      Value: 
+      Value: "PRIORIT\xC9 \nToutes les 15 secondes d'am\xE9lioration de vitesse,
+        50\_% de chances de +1 blocage de la col\xE8re"
     - Key: SmashGrabCard
-      Value: 
+      Value: "\xC9craser et saisir"
     - Key: SmashGrabDesc
-      Value: 
+      Value: "+13 Or \n+2 Col\xE8re"
     - Key: SneakCard
-      Value: 
+      Value: Se faufiler
     - Key: SneakDesc
-      Value: 
+      Value: "+2 Blocage de la col\xE8re"
     - Key: SneakStepCard
-      Value: 
+      Value: "\xC9tape furtive"
     - Key: SneakStepDesc
-      Value: 
+      Value: +2 gemmes sur toutes les futures cartes Sneak Cet effet peut se cumuler
     - Key: SpeedRunnerCard
-      Value: 
+      Value: Coureur de vitesse
     - Key: SpeedRunnerDesc
-      Value: 
+      Value: "+8 Gemmes \xE0 l'entr\xE9e du niveau 3 Ces gemmes dispara\xEEtront
+        apr\xE8s 5 minutes"
     - Key: SprintCard
-      Value: 
+      Value: Sprint
     - Key: SprintDesc
-      Value: 
+      Value: "Vitesse de d\xE9placement des ann\xE9es 60"
     - Key: StabilityCard
-      Value: 
+      Value: "La stabilit\xE9"
     - Key: StabilityDesc
-      Value: 
+      Value: Blocage des dangers +2
     - Key: SuitUpCard
-      Value: 
+      Value: Enfilez vos tenues
     - Key: SuitUpDesc
-      Value: 
+      Value: "PRIORIT\xC9 \n30\_% de r\xE9duction des d\xE9g\xE2ts \n25\_% de chances,
+        +1 col\xE8re pour chaque col\xE8re g\xE9n\xE9r\xE9e"
     - Key: SwaggerCard
-      Value: 
+      Value: Fanfaronnade
     - Key: SwaggerDesc
-      Value: 
+      Value: "+10 Or \n+10 gemmes \nM\xE9langez 2 cartes Dungeon Rage dans votre
+        deck."
     - Key: TreadLightlyCard
-      Value: 
+      Value: "Marchez l\xE9g\xE8rement"
     - Key: TreadLightlyDesc
-      Value: 
+      Value: Blocage de danger +4
+    - Key: ResetSave
+      Value: "R\xE9initialiser les donn\xE9es de jeu enregistr\xE9es"
+    - Key: Deck
+      Value: Pont
+    - Key: Stockpile
+      Value: Stocker
+    - Key: Sort
+      Value: Trier

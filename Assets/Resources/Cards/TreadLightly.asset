@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TreadLightly
   m_EditorClassIdentifier: 
   cardName: TreadLightlyCard
-  description: TreadLightDesc
+  description: TreadLightlyDesc
   maxInDeck: 3
   gemCost: 18
   goldCost: 18

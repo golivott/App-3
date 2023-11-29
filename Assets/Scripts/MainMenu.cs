@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        LanguageController.UpdateTextLanguage();
         int firstLoad = PlayerPrefs.GetInt("FirstLoad", 0);
         if (firstLoad == 0)
         {

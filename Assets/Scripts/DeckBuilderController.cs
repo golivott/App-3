@@ -74,11 +74,11 @@ public class DeckBuilderController : MonoBehaviour
             {
                 Vector3 spawnPos = deckStartPos;
                 spawnPos.x += offsets.x * (cardNum % 4);
-                spawnPos.y += offsets.y * cardNum;
+                spawnPos.y += offsets.y * cardNum * 0.5f;
                 spawnPos.z -= offsets.z * Mathf.Floor(cardNum / 4f);
                 for (int i = 0; i < card.Value; i++)
                 {
-                    spawnPos.y += 1f * i;
+                    spawnPos.y += 2f * i;
                     GameObject cardObj = Instantiate(emptyCardPrefab, spawnPos, emptyCardPrefab.transform.rotation);
                     cardObj.GetComponent<CardObject>().SetCardContent(card.Key, CardCost.Gem, true, true);
                 }

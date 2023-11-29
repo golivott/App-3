@@ -25,7 +25,7 @@ MonoBehaviour:
     - Key: Deck Builder
       Value: Carrrrrds
     - Key: Settings
-      Value: Poop Deck
+      Value: The Brig
     - Key: Back
       Value: Return to port
     - Key: Continue
@@ -45,7 +45,7 @@ MonoBehaviour:
     - Key: Sprint - SHIFT
       Value: Full Sails - SHIFT
     - Key: Sneak - CTRL
-      Value: No Sails - CTRL
+      Value: Tip Toe - CTRL
     - Key: Jump - SPACE
       Value: Big Wave - SPACE
     - Key: Interact - E
@@ -55,128 +55,141 @@ MonoBehaviour:
     - Key: Debug Menu - 1
       Value: Enter Captain's Quarters - 1
     - Key: Gold Shop
-      Value: Gold Shop
+      Value: Black Market
     - Key: AdrenalineRushCard
-      Value: 
+      Value: Bottle o' Courage
     - Key: AdrenalineRushDesc
-      Value: 
+      Value: +1 Hazard Spawn gold equal to current anger
     - Key: BoundingStridesCard
-      Value: 
+      Value: Wavey Seas
     - Key: BoundingStridesDesc
-      Value: 
+      Value: +2 Hazard Block 120s Jump Boost
     - Key: BrillianceCard
-      Value: 
+      Value: Smarty Pants
     - Key: BrillianceDesc
-      Value: 
+      Value: Draw 2 Cards
     - Key: DeepDiverCard
-      Value: 
+      Value: Walk The Plank
     - Key: DeepDiverDesc
-      Value: 
+      Value: Spawn 6 gems at the start of each level in the dungeon
     - Key: DungeonRageCard
-      Value: 
+      Value: Davey Jones Rage
     - Key: DungeonRageDesc
-      Value: 
+      Value: +2 Anger
     - Key: DungeonRepairsCard
-      Value: 
+      Value: Batten Down Hatches
     - Key: DungeonRepairsDesc
-      Value: 
+      Value: "+7 Hazard Block \n+1 Anger"
     - Key: EerieSilenceCard
-      Value: 
+      Value: Drunk Helmsman
     - Key: EerieSilenceDesc
-      Value: 
+      Value: "+8 Anger Block \n+2 Hazard Block \nDiscard your next card draw"
     - Key: EvasionCard
-      Value: 
+      Value: Sea Shanties
     - Key: EvasionDesc
-      Value: 
+      Value: +4 Anger Block
     - Key: EyesOnThePrizeCard
-      Value: 
+      Value: Treasure Map
     - Key: EyesOnThePrizeDesc
-      Value: 
+      Value: "+2 Anger \n+3 Hazard \nAn extra card is available from the shop at
+        the end of this run"
     - Key: FuzzyBunnySlippersCard
-      Value: 
+      Value: Drunkard
     - Key: FuzzyBunnySlippersDesc
-      Value: 
+      Value: "PRIORITY \nEvery 6 minutes, +4 Anger Block Player speed cannot be buffed
+        after collecting the artifact"
     - Key: GemFocusCard
-      Value: 
+      Value: Shinies Focus
     - Key: GemFocusDesc
-      Value: 
+      Value: +4 Gems
     - Key: GemRainCard
-      Value: 
+      Value: Shinies Rain
     - Key: GemRainDesc
-      Value: 
+      Value: "+3 Hazard \n2x Gems for the next 3 card draws"
     - Key: GemSeekerCard
-      Value: 
+      Value: Shinies Seeker
     - Key: GemSeekerDesc
-      Value: 
+      Value: +2 Gems
     - Key: GoldHunterCard
-      Value: 
+      Value: Treasure Hunter
     - Key: GoldHunterDesc
-      Value: 
+      Value: +4 Gold
     - Key: GuardianAngelCard
-      Value: 
+      Value: Neptune's Blessing
     - Key: GuardianAngelDesc
-      Value: 
+      Value: +1 Anger Freeze all guardians for 15s
     - Key: HasteCard
-      Value: 
+      Value: Full Sails
     - Key: HasteDesc
-      Value: 
+      Value: 10% Faster Card Draws
     - Key: LootScootCard
-      Value: 
+      Value: Captain's Orders
     - Key: LootScootDesc
-      Value: 
+      Value: "+7 Gold \n15s Move Speed"
     - Key: NimbleLootingCard
-      Value: 
+      Value: Night Voyage
     - Key: NimbleLootingDesc
-      Value: 
+      Value: "+1 Anger Block \n+2 Gold \n+2 Gold for each anger blocked until anger
+        block is 0"
     - Key: QuickstepCard
-      Value: 
+      Value: Man the Crow's Nest
     - Key: QuickstepDesc
-      Value: 
+      Value: "+2 Anger Block \n15s Move Speed \nDraw a card"
     - Key: RecklessChargeCard
-      Value: 
+      Value: Chum the Waters
     - Key: RecklessChargeDesc
-      Value: 
+      Value: "+2 Hazard \n+8 Gems if you trigger a noise event within 10s"
     - Key: SecondWindCard
-      Value: 
+      Value: Ocean Breeze
     - Key: SecondWindDesc
-      Value: 
+      Value: "15s Regen \n15s Move Speed"
     - Key: SilentRunnerCard
-      Value: 
+      Value: Sneaky Rat
     - Key: SilentRunnerDesc
-      Value: 
+      Value: "PRIORITY \nFor every 15s of speed buff, 50% chance for +1 Anger Block"
     - Key: SmashGrabCard
-      Value: 
+      Value: Loot & Pillage
     - Key: SmashGrabDesc
-      Value: 
+      Value: "+13 Gold \n+2 Anger"
     - Key: SneakCard
-      Value: 
+      Value: Tip Toe
     - Key: SneakDesc
-      Value: 
+      Value: +2 Anger Block
     - Key: SneakStepCard
-      Value: 
+      Value: Tip Toe Faster
     - Key: SneakStepDesc
-      Value: 
+      Value: +2 Gems on any future Sneak cards This effect can stack
     - Key: SpeedRunnerCard
-      Value: 
+      Value: Land ho!
     - Key: SpeedRunnerDesc
-      Value: 
+      Value: '+8 Gems at the entrance to level 3 These gems will disappear after
+        5min '
     - Key: SprintCard
-      Value: 
+      Value: Can't Catch Me
     - Key: SprintDesc
-      Value: 
+      Value: 60s Move Speed
     - Key: StabilityCard
-      Value: 
+      Value: Organize Ship
     - Key: StabilityDesc
-      Value: 
+      Value: +2 Hazard Block
     - Key: SuitUpCard
-      Value: 
+      Value: Buy Booze
     - Key: SuitUpDesc
-      Value: 
+      Value: "PRIORITY \n30% Damage Reduction 25% Chance, \n+1 Anger for each anger
+        generated"
     - Key: SwaggerCard
-      Value: 
+      Value: Pirate King
     - Key: SwaggerDesc
-      Value: 
+      Value: "+10 Gold \n+10 Gems \nShuffle 2 Dungeon Rage Cards into your deck"
     - Key: TreadLightlyCard
-      Value: 
+      Value: Storm Approaches
     - Key: TreadLightlyDesc
-      Value: 
+      Value: +4 Hazard Block
+    - Key: ResetSave
+      Value: Burn the Ship
+    - Key: Deck
+      Value: Your Caaaarrds
+    - Key: Stockpile
+      Value: Not Your Caaaarrds
+    - Key: Sort
+      Value: Swab Poop Deck

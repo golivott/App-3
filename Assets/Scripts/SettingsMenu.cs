@@ -44,6 +44,17 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("volume", sound);
     }
 
+    public void ResetSaved()
+    {
+        PlayerPrefs.SetFloat("Gold", 0f);
+        Deck defaultDeck = Resources.Load<Deck>("Deck/DefaultDeck");
+        Deck deck = Resources.Load<Deck>("Deck/Deck");
+        deck.deck = defaultDeck.deck;
+        deck.stockpile = defaultDeck.stockpile;
+        deck.maxCards = defaultDeck.maxCards;
+        Deck.SaveDeck();
+    } 
+
     public void Save()
     {
         PlayerPrefs.Save();

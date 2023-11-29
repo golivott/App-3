@@ -240,3 +240,11 @@ MonoBehaviour:
       Value: Tread Lightly
     - Key: TreadLightlyDesc
       Value: +4 Hazard Block
+    - Key: ResetSave
+      Value: Reset Saved Game Data
+    - Key: Deck
+      Value: Deck
+    - Key: Stockpile
+      Value: Stockpile
+    - Key: Sort
+      Value: Sort

@@ -55,19 +55,24 @@ public class GemShopController : MonoBehaviour
             
             if (selectedCard && currGems >= selectedCard.gemCost)
             {
-                currGems -= selectedCard.gemCost;
-                if (deck.stockpile.ContainsKey(selectedCard))
-                {
-                    deck.stockpile[selectedCard] += 1;
-                }
-                else
-                {
-                    deck.stockpile[selectedCard] = 1;
-                }
+                int numCards = deck.stockpile.ContainsKey(selectedCard) ? deck.stockpile[selectedCard] : 0;
 
-                GameObject lastObject = cardsSelected[^1];
-                CardSelectionBox.cards.Remove(cardsSelected[^1]);
-                Destroy(lastObject);
+                if (numCards < selectedCard.maxInDeck)
+                {
+                    currGems -= selectedCard.gemCost;
+                    if (deck.stockpile.ContainsKey(selectedCard))
+                    {
+                        deck.stockpile[selectedCard] += 1;
+                    }
+                    else
+                    {
+                        deck.stockpile[selectedCard] = 1;
+                    }
+
+                    GameObject lastObject = cardsSelected[^1];
+                    CardSelectionBox.cards.Remove(cardsSelected[^1]);
+                    Destroy(lastObject);
+                }
             }
         }
     }

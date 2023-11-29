@@ -21,6 +21,7 @@ public class CardObject : MonoBehaviour
     public GameObject gemImage;
     public GameObject goldImage;
     public GameObject costBG;
+    public TextMeshPro max;
     public Card card;
     
     public bool isHovering = false;
@@ -107,6 +108,7 @@ public class CardObject : MonoBehaviour
         this.card = card;
         title.name = card.cardName;
         description.name = card.description;
+        max.text = card.maxInDeck.ToString();
         if (costType == CardCost.Infer)
         {
             costType = card.cardRarity == CardRarity.Normal ? CardCost.Gold : CardCost.Gem;
